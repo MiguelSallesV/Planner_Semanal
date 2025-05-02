@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Semanal</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header>
+        <div>
+        <h1 class="titulo__header">Sua agenda semanal</h1>
+        </div>
+        <h2 class="diaatual__header">Bom dia! Hoje é 22/22/2222</h2>
+    </header>
+    <main>
+        <ul class="main__dias">
+            <li class="main__dia">
+                <span class="main__dia__semana" id="segunda">Segunda-Feira</span>
+                <ul class="lista__dia lista__segunda"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="segunda" onclick="criarEvento(event)">Adicionar evento</button>
+                <div id="fundo">
+                    <div id="formulario" class="formulario">
+                        <div class="fomulario__conteudo">
+                            <button class="fechar" onclick="fecharFormulario()">&times;</button>
+                            <form class="formulario__campos" onsubmit="adicionarEvento(event)">
+                                <div>
+                                <label>Título: </label>
+                                <br>
+                                <input style="width: 20em;" type="text" name="titulo" id="titulo" required>
+                                </div>
+                                <div>
+                                <label>Descrição Opcional: </label>
+                                <br>
+                                <textarea row="6" style="width: 20em" id="descricao" name="descricao"></textarea>
+                                </div>
+                                <div>
+                                <label>Horário: </label>
+                                <br>
+                                <input type="time" name="horario" id="horario" required>
+                                </div>
+                                <button class="botao__addevento submit" type="submit">Adicionar Evento</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="terca">Terça-Feira</span>
+                <ul class="lista__terca"></ul>
+                <button class="botao__addevento" value="terca" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="quarta">Quarta-Feira</span>
+                <ul class="lista__quarta"></ul>
+                <button class="botao__addevento" value="quarta" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="quinta">Quinta-Feira</span>
+                <ul class="lista__quinta"></ul>
+                <button class="botao__addevento" value="quinta" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="sexta">Sexta-Feira</span>
+                <ul class="lista__sexta"></ul>
+                <button class="botao__addevento" value="sexta" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="sabado">Sábado</span>
+                <ul class="lista__sabado"></ul>
+                <button class="botao__addevento" value="sabado" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="domingo">Domingo</span>
+                <ul class="lista__domingo"></ul>
+                <button class="botao__addevento" value="domingo" onclick="criarEvento()">Adicionar evento</button>
+            </li>
+        </ul>
+    </main>
+    <footer class="rodape">
+        <div class="rodape__conteudo">
+            <p>Organize de maneira simples seus compromissos semanais!</p>
+            <p>Desenvolvido por Miguel Salles</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
