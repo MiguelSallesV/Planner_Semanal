@@ -27,6 +27,24 @@ header {
     background-color: var(--cor-secundaria);
 }
 
+.titulo__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao__excluir {
+
+    font-family: var(--cor-secundaria);
+    background-color: red;
+    border-radius: 1em;
+    padding: 0.5em;
+    border: 0;
+    color: var(--cor-terciaria);
+    width: 8em;
+    margin: 0 2em;
+}
+
 main {
     padding: 2% 5%;
 }
@@ -50,11 +68,9 @@ main {
 }
 
 .lista__dia {
-    display: none;
     max-height: 570px;
     overflow-y: auto;
     width: 100%;
-    border: 5px var(--cor-secundaria) solid;
     padding: 5px;
 }
 
@@ -144,4 +160,8 @@ input, textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.horario {
+    -webkit-text-stroke: 1px var(--cor-secundaria);
 }
