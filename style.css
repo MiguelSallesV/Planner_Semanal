@@ -163,5 +163,19 @@ input, textarea {
 }
 
 .horario {
-    -webkit-text-stroke: 1px var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+
+.dia {
+    width: 20px;
+    position: relative;
+    left: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

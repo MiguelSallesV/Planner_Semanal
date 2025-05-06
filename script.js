@@ -1,5 +1,4 @@
 
-
 function criarEvento(event) {
     let botaoClicado = event.target;
     let dia = botaoClicado.value;
@@ -40,8 +39,8 @@ function exibirEventos(dia) {
         var elemento = document.createElement('li');
         elemento.style.borderTop = '5px #6F826A solid';
         elemento.innerHTML = evento.descricao
-        ? `${evento.titulo}<br>${evento.descricao}<br><span class="horario">${evento.horario}</span>`
-        : `${evento.titulo}<br><span class="horario">${evento.horario}</span>`;
+        ? `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button></div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
+        : `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button></div> <span class="horario">${evento.horario}</span>`;
         listaDia.appendChild(elemento);
     })
 }
@@ -55,11 +54,13 @@ function adicionarEvento(event) {
     let titulo = document.getElementsByName('titulo')[0].value;
     let descricao = document.getElementsByName('descricao')[0].value;
     let horario = document.getElementsByName('horario')[0].value;
+    let id = 0;
 
     const eventoLocal = {
         titulo: titulo,
         descricao: descricao,
         horario: horario,
+        id: id
     };
 
     //Recupera os eventos que já estão armazenados no Storage
@@ -68,7 +69,6 @@ function adicionarEvento(event) {
 
     //Salva os eventos atualizados no LocalStorage
     localStorage.setItem(diaSelecionado, JSON.stringify(evento));
-    
     exibirEventos(diaSelecionado);
 
     formulario.submit()
@@ -82,6 +82,20 @@ function adicionarEvento(event) {
         });
     });
 
+//Editar Eventos
+function editarEvento (diaSelecionado, evento) {
+    
+}
+
+//Excluir um evento específico (baseado na descrição, título)
+function excluirEvento(diaSelecionado, tituloParaExcluir, descricaoParaExcluir) {
+    let evento = JSON.parse(localStorage.getItem(diaSelecionado));
+    let eventoNovo = evento.filter((evento) => evento.titulo !== tituloParaExcluir || evento.descricao !== descricaoParaExcluir)
+    localStorage.setItem(diaSelecionado, JSON.stringify(eventoNovo))
+    exibirEventos(diaSelecionado)
+}
+
+//Exclui todos os eventos
 function excluirAllEvents() {
     localStorage.clear()
     location.reload()
