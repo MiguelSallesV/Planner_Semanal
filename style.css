@@ -34,7 +34,6 @@ header {
 }
 
 .botao__excluir {
-
     font-family: var(--cor-secundaria);
     background-color: red;
     border-radius: 1em;
@@ -43,6 +42,24 @@ header {
     color: var(--cor-terciaria);
     width: 8em;
     margin: 0 2em;
+}
+
+.botao__editar {
+    background-color: #3ba6e4;
+    border-radius: 1em;
+    border: 0px;
+    color: var(--cor-terciaria);
+    width: 20px;
+    position: relative;
+    left: 20px;   
+}
+
+.dia {
+    width: 20px;
+    position: relative;
+    left: 10px;
+    margin: 0px;
+    padding: 0px;
 }
 
 main {
@@ -72,6 +89,16 @@ main {
     overflow-y: auto;
     width: 100%;
     padding: 5px;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.horario {
+    color: var(--cor-secundaria);
 }
 
 .main__dia__semana {
@@ -156,26 +183,9 @@ input, textarea {
     background-color: var(--cor-secundaria);
     padding: 1em;
 }
+
 .rodape__conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.horario {
-    color: var(--cor-secundaria);
-}
-
-.dia {
-    width: 20px;
-    position: relative;
-    left: 10px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

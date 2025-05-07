@@ -39,8 +39,8 @@ function exibirEventos(dia) {
         var elemento = document.createElement('li');
         elemento.style.borderTop = '5px #6F826A solid';
         elemento.innerHTML = evento.descricao
-        ? `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button></div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
-        : `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button></div> <span class="horario">${evento.horario}</span>`;
+        ? `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button> <button class="botao__editar" onclick ="editarEvento('${dia}','${evento.titulo}','${evento.descricao}')">&#x270F;&#xFE0F;</button></div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
+        : `<div class="titulo"> ${evento.titulo} <button class="botao__excluir dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button> <button class="botao__editar" onclick ="editarEvento('${dia}','${evento.titulo}','${evento.descricao}')">&#x270F;&#xFE0F;</button></div> <span class="horario">${evento.horario}</span>`;
         listaDia.appendChild(elemento);
     })
 }
@@ -54,18 +54,24 @@ function adicionarEvento(event) {
     let titulo = document.getElementsByName('titulo')[0].value;
     let descricao = document.getElementsByName('descricao')[0].value;
     let horario = document.getElementsByName('horario')[0].value;
-    let id = 0;
 
     const eventoLocal = {
         titulo: titulo,
         descricao: descricao,
         horario: horario,
-        id: id
     };
 
     //Recupera os eventos que já estão armazenados no Storage
     let evento = JSON.parse(localStorage.getItem(diaSelecionado)) || [];
-    evento.push(eventoLocal)
+    let dadosEvento = document.getElementById('formulario').getAttribute('editando-dados');
+    //Editando um evento (se foi clicado o botão de editar)
+    if (dadosEvento) {
+        let {diaSelecionado,eventoIndex} = JSON.parse(dadosEvento)
+        evento[eventoIndex] = eventoLocal;
+        document.getElementById('formulario').removeAttribute('editando-dados');
+    } else {
+       evento.push(eventoLocal)
+    }
 
     //Salva os eventos atualizados no LocalStorage
     localStorage.setItem(diaSelecionado, JSON.stringify(evento));
@@ -83,8 +89,21 @@ function adicionarEvento(event) {
     });
 
 //Editar Eventos
-function editarEvento (diaSelecionado, evento) {
+function editarEvento (diaSelecionado, tituloParaEditar, descricaoParaEditar) {
+    let eventoSelecionado = JSON.parse(localStorage.getItem(diaSelecionado)) || [];
+    let eventoIndex = eventoSelecionado.findIndex((evento) => evento.titulo === tituloParaEditar && evento.descricao === descricaoParaEditar);
+    //Abre o Formulário de Novo
+    document.getElementById('formulario').style.display = 'block';
+    document.getElementById('fundo').style.display = 'block';
     
+    //Preenche os campos com os dados atuais
+    document.getElementById('diaselecionado').value = diaSelecionado
+    document.getElementsByName('titulo')[0].value = eventoSelecionado[eventoIndex].titulo
+    document.getElementsByName('descricao')[0].value = eventoSelecionado[eventoIndex].descricao
+    document.getElementsByName('horario')[0].value = eventoSelecionado[eventoIndex].horario
+
+    //Adiciona um indentificador para saber que estamos editando
+    document.getElementById('formulario').setAttribute('editando-dados', JSON.stringify({diaSelecionado, eventoIndex}));
 }
 
 //Excluir um evento específico (baseado na descrição, título)
