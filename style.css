@@ -42,6 +42,16 @@ header {
     color: var(--cor-terciaria);
     width: 8em;
     margin: 0 2em;
+
+    &:hover {
+        background-color: #fc4848;
+    }
+}
+
+.excluir__dia {
+    width: 30px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .botao__editar {
@@ -49,21 +59,17 @@ header {
     border-radius: 1em;
     border: 0px;
     color: var(--cor-terciaria);
-    width: 20px;
-    position: relative;
-    left: 20px;   
+    width: 30px;
+    
+    &:hover {
+        background-color: #77b2d4;
+    }
 }
 
-.dia {
-    width: 20px;
-    position: relative;
-    left: 10px;
-    margin: 0px;
-    padding: 0px;
-}
 
 main {
-    padding: 2% 5%;
+    padding: 2% 4%;
+    min-height: 100vh;
 }
 
 .main__dias {
@@ -80,15 +86,22 @@ main {
     text-align: center;
     align-items: center;
     min-height: 570px;
-    max-height: 570px;
+    max-height: 100vh;
     overflow: hidden;
 }
 
 .lista__dia {
     max-height: 570px;
     overflow-y: auto;
+    scrollbar-width: thin;
+    max-width: inherit;
     width: 100%;
-    padding: 5px;
+    padding-top: 5%;
+}
+
+.lista__dia::-webkit-scrollbar-thumb {
+    background-color: var(--cor-secundaria) !important;
+    border-radius: 8px !important;
 }
 
 .titulo {
@@ -116,6 +129,21 @@ main {
     margin-top: 5%;
 }
 
+.botao__ordena {
+    display: none;
+    font-family: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    border-radius: 1em;
+    padding: 0.5em;
+    border: 0;
+    color: var(--cor-terciaria);
+    width: 5em;
+    margin-top: 5%;
+}
+
+.botao__addevento:hover {
+    background-color: #92ac8c;
+}
 
 .submit {
     margin-top: 0;
@@ -188,4 +216,8 @@ input, textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 1366px) {
+
 }
