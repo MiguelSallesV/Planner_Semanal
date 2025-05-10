@@ -59,7 +59,7 @@ header {
     border-radius: 1em;
     border: 0px;
     color: var(--cor-terciaria);
-    width: 30px;
+    width: 2em;
     
     &:hover {
         background-color: #77b2d4;
@@ -91,13 +91,16 @@ main {
 }
 
 .lista__dia {
+    display: block;
     max-height: 570px;
     overflow-y: auto;
     scrollbar-width: thin;
     max-width: inherit;
     width: 100%;
     padding-top: 5%;
+    word-break: break-all;
 }
+
 
 .lista__dia::-webkit-scrollbar-thumb {
     background-color: var(--cor-secundaria) !important;
@@ -218,6 +221,131 @@ input, textarea {
     align-items: center;
 }
 
-@media (max-width: 1366px) {
+/* Pequenos ajustes */
+@media (max-width: 1273px) {
+    .main__dia__semana {
+        font-size: 1.3em;
+    }
 
+    li {
+        font-size: 12px;
+    }
+}
+/* Dektops menores e tablets */
+@media (max-width: 1111px) {
+    .titulo__header {
+        font-size: 1em;
+    }
+
+    .diaatual__header {
+        font-size: 25px;
+    }
+
+    .botao__excluir {
+        font-size: 1em;
+        width: 8em;
+    }
+
+    body {
+        font-size: 0.8em;
+    }
+
+    main {
+        padding: 2%;
+    }
+
+    .main__dias {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main__dia {
+        min-height: 200px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main__dia__semana {
+        display: flex;
+        flex-direction: column;
+    }
+    .lista__dia {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y:unset;
+        list-style: none;
+        padding-top: 0;
+        width: 100%;
+    }
+
+    li {
+        margin:0 0.5em;
+        flex: 0 1 10em;
+    }
+
+    .botao__addevento {
+        width: 7em;
+        font-size: 10px;
+        align-items: center;
+        padding: 0.5em;
+        margin-top: 0px;
+        text-align: center;
+    }
+
+    .botao__ordena {
+        margin-top: 0;
+        margin-left: 1em;
+    }
+
+    .excluir__dia {
+        width: 1.5em;
+    }
+}
+
+/* Pequenos ajustes */
+@media (max-width: 824px) {
+    .titulo__header {
+        font-size: 0.8em;
+    }
+
+    .diaatual__header {
+        font-size: 19px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 620px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .titulo__header {
+        font-size: 10px;
+    }
+
+    .diaatual__header {
+        font-size: 15px;
+    }
+
+    .botao__excluir {
+        margin: 5px 5px;
+        font-size: 1em;
+    }
+
+    .excluir__dia {
+        font-size: 8px;
+    }
+
+    .botao__editar {
+        font-size: 8px;
+    }
+
+    .botao__addevento{
+        font-size: 10px;
+    }
+    
 }

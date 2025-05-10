@@ -77,12 +77,11 @@ function adicionarEvento(event) {
     event.preventDefault() //Evita o carregamento da página ao enviar o formulário
 
     let diaSelecionado = document.getElementById('diaselecionado').value;
-    document.querySelector('ul.lista__dia').style.display = 'block';
     let formulario = document.querySelector('form.formulario__campos');
     let titulo = document.getElementsByName('titulo')[0].value;
     let descricao = document.getElementsByName('descricao')[0].value;
     let horario = document.getElementsByName('horario')[0].value;
-
+    
     const eventoLocal = {
         titulo: titulo,
         descricao: descricao,
@@ -95,27 +94,26 @@ function adicionarEvento(event) {
     let eventoExiste = evento.some((e) => {
         return e.titulo === eventoLocal.titulo 
     })
-    if (eventoExiste) {
-        alert('Não podem ter dois títulos iguais');
-        return;
-    }
-
+    
     //Editando um evento (se foi clicado o botão de editar)
     let dadosEvento = document.getElementById('formulario').getAttribute('editando-dados');
     if (dadosEvento) {
         let {diaSelecionado,eventoIndex} = JSON.parse(dadosEvento)
         evento[eventoIndex] = eventoLocal;
         document.getElementById('formulario').removeAttribute('editando-dados');
+    } else if (eventoExiste) {
+        alert('Não podem ter dois títulos iguais');     
+        return;
     } else {
         evento.push(eventoLocal)
     }
-    
+
     //Salva os eventos atualizados no LocalStorage
     localStorage.setItem(diaSelecionado, JSON.stringify(evento));
     exibirEventos(diaSelecionado);
     
     formulario.submit()
-    }
+}
 
 //Carregar eventos automaticamente quando atualizar a página
     document.addEventListener('DOMContentLoaded', () => {
