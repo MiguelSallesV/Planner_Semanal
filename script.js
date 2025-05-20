@@ -1,54 +1,67 @@
+import adicionarEvento from "./scripts/adicionarEvento.js";
+import dataAtual from "./scripts/dataAtual.js";
+import editarEvento from "./scripts/editarEvento.js";
+import excluirEvento from "./scripts/excluirEvento.js";
+
+//Pegando as datas atuais
+//import
+dataAtual();
+
 //Abre o Formulário e pega o valor do Dia
-function criarEvento(event) {
+const botaoAddEvento = document.querySelectorAll('.botao__addevento')
+botaoAddEvento.forEach((botao) => {
+    botao.addEventListener('click', (event) => {
     let botaoClicado = event.target;
     let dia = botaoClicado.value;
     document.getElementById('formulario').style.display = 'block';
     document.getElementById('fundo').style.display = 'block';
     document.getElementById('diaselecionado').value = dia;
-}
-
-//Ordena os eventos do menor horário para o maior
-function ordenarEvento(event) {
-    let botaoClicado = event.target
-    let dia = botaoClicado.value
-    let eventos = JSON.parse(localStorage.getItem(dia))
-    eventos.forEach((evento) => {
-       let horario = Number((evento.horario).replace(':','.')).toFixed(2)
-       evento.horario = horario   
     })
-    
-    eventos.sort((a,b) => a.horario - b.horario)
-    
-    eventos.forEach((evento) => {
-        evento.horario = String(evento.horario).replace('.',':')
-    })
+})
 
-    localStorage.setItem(dia, JSON.stringify(eventos))
-    exibirEventos(dia)
-}
+//Adicionar Evento (Formulário)
+const botaoSubmit = document.querySelector('.botao__submit');
+botaoSubmit.addEventListener('click', (event) => {
+    event.preventDefault() //Evita o carregamento da página ao enviar o formulário
+     let formulario = document.querySelector('form.formulario__campos');
+    //import
+    let diaSelecionado = adicionarEvento();
+    //
+    exibirEventos(diaSelecionado);
+    formulario.submit();  
+})
 
-function fecharFormulario() {
+//Fechar Formulário
+const botaoFechar = document.querySelector('.fechar');
+botaoFechar.addEventListener('click', () => {
     document.getElementById('formulario').style.display = 'none';
     document.getElementById('fundo').style.display = 'none';
-}
+})
 
-//Pegando as datas atuais
-let data = new Date();
-let anoAtual = data.getFullYear();
-let mesAtual = data.getMonth();
-let diaAtual = data.getDate();
-let horaAtual = data.getHours();
-let mensagemBomDia = document.querySelector('h2.diaatual__header');
+//Ordena os eventos do menor horário para o maior
+const botaoOrdenaEvento = document.querySelectorAll('.botao__ordena');
+botaoOrdenaEvento.forEach((botao) => {
+    botao.addEventListener('click', (event) => {
+        let botaoClicado = event.target;
+        let dia = botaoClicado.value;
+        let eventos = JSON.parse(localStorage.getItem(dia));
+        eventos.forEach((evento) => {
+        let horario = Number((evento.horario).replace(':','.')).toFixed(2);
+        evento.horario = horario;  
+        })
+        
+        eventos.sort((a,b) => a.horario - b.horario);
+        
+        eventos.forEach((evento) => {
+            evento.horario = String(evento.horario).replace('.',':');
+        })
+        
+        localStorage.setItem(dia, JSON.stringify(eventos));
+        exibirEventos(dia);
+    })
+})
 
-if (horaAtual <= 12 && horaAtual > 5) {
-    mensagemBomDia.innerHTML = `Bom dia! Hoje é ${diaAtual}/${mesAtual + 1}/${anoAtual}`;    
-} else if (horaAtual > 12 && horaAtual <= 17) {
-    mensagemBomDia.innerHTML = `Boa Tarde! Hoje é ${diaAtual}/${mesAtual + 1}/${anoAtual}`; 
-} else if (horaAtual >= 0 && horaAtual <= 5) {
-    mensagemBomDia.innerHTML = `Boa Madrugada! Hoje é ${diaAtual}/${mesAtual + 1}/${anoAtual}`;
-} else {
-    mensagemBomDia.innerHTML = `Boa Noite! Hoje é ${diaAtual}/${mesAtual + 1}/${anoAtual}`;
-}
+
 
 //Função que adiciona os eventos a lista do dia específico
 function exibirEventos(dia) {
@@ -61,58 +74,31 @@ function exibirEventos(dia) {
     
     let fragmento = document.createDocumentFragment();
     eventos.forEach((evento) => {
-        var elemento = document.createElement('li');
-        elemento.style.borderTop = '5px #6F826A solid';
-        elemento.innerHTML = evento.descricao
-        ? `<button class="botao__excluir excluir__dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button> <button class="botao__editar" onclick ="editarEvento('${dia}','${evento.titulo}','${evento.descricao}')">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
-        : `<button class="botao__excluir excluir__dia" onclick="excluirEvento('${dia}','${evento.titulo}','${evento.descricao}')">X</button> <button class="botao__editar" onclick ="editarEvento('${dia}','${evento.titulo}','${evento.descricao}')">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> <span class="horario">${evento.horario}</span>`;
-        fragmento.appendChild(elemento);
+        var listaEventos = document.createElement('li');
+        listaEventos.style.borderTop = '5px #6F826A solid';
+        listaEventos.innerHTML = evento.descricao
+        ? `<button class="botao__excluir excluir__dia">X</button> <button class="botao__editar">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
+        : `<button class="botao__excluir excluir__dia">X</button> <button class="botao__editar">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> <span class="horario">${evento.horario}</span>`;
+        
+        fragmento.appendChild(listaEventos);
+
+        //Editar Eventos
+        let botaoEditarEv = listaEventos.querySelector('.botao__editar');
+        botaoEditarEv.addEventListener('click', () => {
+            //import
+            editarEvento(dia,evento.titulo,evento.descricao);
+        })
+                 
+        //Excluir um evento específico (baseado na descrição, título)
+        let botaoExcluirEv = listaEventos.querySelector('.excluir__dia');
+        botaoExcluirEv.addEventListener('click', () => {
+            //import
+            let diaSelecionadoPExcluir = excluirEvento(dia,evento.titulo,evento.descricao)
+            exibirEventos(diaSelecionadoPExcluir)
+        })
+           
     })
-
-    listaDia.appendChild(fragmento) //Adiciona tudo de uma vez no DOM
-    
-}
-
-function adicionarEvento(event) {
-    event.preventDefault() //Evita o carregamento da página ao enviar o formulário
-
-    let diaSelecionado = document.getElementById('diaselecionado').value;
-    let formulario = document.querySelector('form.formulario__campos');
-    let titulo = document.getElementsByName('titulo')[0].value;
-    let descricao = document.getElementsByName('descricao')[0].value;
-    let horario = document.getElementsByName('horario')[0].value;
-    
-    const eventoLocal = {
-        titulo: titulo,
-        descricao: descricao,
-        horario: horario,
-    };
-
-    //Recupera os eventos que já estão armazenados no Storage
-    let evento = JSON.parse(localStorage.getItem(diaSelecionado)) || [];
-    //Verifica se já não tem um evento com o título
-    let eventoExiste = evento.some((e) => {
-        return e.titulo === eventoLocal.titulo 
-    })
-    
-    //Editando um evento (se foi clicado o botão de editar)
-    let dadosEvento = document.getElementById('formulario').getAttribute('editando-dados');
-    if (dadosEvento) {
-        let {diaSelecionado,eventoIndex} = JSON.parse(dadosEvento)
-        evento[eventoIndex] = eventoLocal;
-        document.getElementById('formulario').removeAttribute('editando-dados');
-    } else if (eventoExiste) {
-        alert('Não podem ter dois títulos iguais');     
-        return;
-    } else {
-        evento.push(eventoLocal)
-    }
-
-    //Salva os eventos atualizados no LocalStorage
-    localStorage.setItem(diaSelecionado, JSON.stringify(evento));
-    exibirEventos(diaSelecionado);
-    
-    formulario.submit()
+    listaDia.appendChild(fragmento) //Adiciona tudo de uma vez no DOM  
 }
 
 //Carregar eventos automaticamente quando atualizar a página
@@ -124,34 +110,17 @@ function adicionarEvento(event) {
         });
     });
 
-//Editar Eventos
-function editarEvento (diaSelecionado, tituloParaEditar, descricaoParaEditar) {
-    let eventoSelecionado = JSON.parse(localStorage.getItem(diaSelecionado)) || [];
-    let eventoIndex = eventoSelecionado.findIndex((evento) => evento.titulo === tituloParaEditar && evento.descricao === descricaoParaEditar);
-    //Abre o Formulário de Novo
-    document.getElementById('formulario').style.display = 'block';
-    document.getElementById('fundo').style.display = 'block';
-    
-    //Preenche os campos com os dados atuais
-    document.getElementById('diaselecionado').value = diaSelecionado
-    document.getElementsByName('titulo')[0].value = eventoSelecionado[eventoIndex].titulo
-    document.getElementsByName('descricao')[0].value = eventoSelecionado[eventoIndex].descricao
-    document.getElementsByName('horario')[0].value = eventoSelecionado[eventoIndex].horario
-
-    //Adiciona um indentificador para saber que estamos editando
-    document.getElementById('formulario').setAttribute('editando-dados', JSON.stringify({diaSelecionado, eventoIndex}));
-}
-
-//Excluir um evento específico (baseado na descrição, título)
-function excluirEvento(diaSelecionado, tituloParaExcluir, descricaoParaExcluir) {
-    let evento = JSON.parse(localStorage.getItem(diaSelecionado));
-    let eventoNovo = evento.filter((evento) => evento.titulo !== tituloParaExcluir || evento.descricao !== descricaoParaExcluir)
-    localStorage.setItem(diaSelecionado, JSON.stringify(eventoNovo))
-    exibirEventos(diaSelecionado)
-}
-
 //Exclui todos os eventos
-function excluirAllEvents() {
-    localStorage.clear()
-    location.reload()
-}
+const botaoExcluirAllEvents = document.querySelector('.botao__excluir');
+botaoExcluirAllEvents.addEventListener('click', () => {
+
+    if (localStorage.length === 0) {
+    alert('Não existem eventos para excluir')
+    return
+    }
+    const resposta = confirm('Deseja mesmo excluir todos os eventos?')
+    if(resposta) {
+        localStorage.clear()
+        location.reload()
+    }
+})

@@ -13,7 +13,10 @@
     <header>
         <div class="titulo__header">
         <h1>Sua agenda semanal</h1>
-        <button onclick="excluirAllEvents()" class="botao__excluir">Excluir Eventos</button>
+        </div>
+        <div class="botoes__header">
+        <button class="botao__excluir">Excluir Eventos</button>
+        <button onclick="mudarcor()" class="botao__cor">Mudar cor</button>
         </div>
         <h2 class="diaatual__header">Bom dia! Hoje é 22/22/2222</h2>
     </header>
@@ -23,13 +26,13 @@
                 <span class="main__dia__semana" id="segunda">Segunda-Feira</span>
                 <ul class="lista__dia lista__segunda"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="segunda" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena segunda" value="segunda" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="segunda">Adicionar evento</button>
+                <button class="botao__ordena segunda" value="segunda">Ordena</button>
                 <div id="fundo">
                     <div id="formulario" class="formulario">
                         <div class="fomulario__conteudo">
-                            <button class="fechar" onclick="fecharFormulario()">&times;</button>
-                            <form class="formulario__campos" onsubmit="adicionarEvento(event)">
+                            <button class="fechar">&times;</button>
+                            <form class="formulario__campos">
                                 <div>
                                 <label>Título: </label>
                                 <br>
@@ -45,7 +48,7 @@
                                 <br>
                                 <input type="time" name="horario" id="horario" required>
                                 </div>
-                                <button class="botao__addevento submit" type="submit">Adicionar Evento</button>
+                                <button class="botao__submit" type="submit">Adicionar Evento</button>
                             </form>
                         </div>
                     </div>
@@ -55,43 +58,43 @@
                 <span class="main__dia__semana" id="terca">Terça-Feira</span>
                 <ul class="lista__dia lista__terca"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="terca" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena terca" value="terca" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="terca">Adicionar evento</button>
+                <button class="botao__ordena terca" value="terca">Ordena</button>
             </li>
             <li class="main__dia">
                 <span class="main__dia__semana" id="quarta">Quarta-Feira</span>
                 <ul class="lista__dia lista__quarta"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="quarta" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena quarta" value="quarta" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="quarta">Adicionar evento</button>
+                <button class="botao__ordena quarta" value="quarta">Ordena</button>
             </li>
             <li class="main__dia">
                 <span class="main__dia__semana" id="quinta">Quinta-Feira</span>
                 <ul class="lista__dia lista__quinta"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="quinta" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena quinta" value="quinta" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="quinta">Adicionar evento</button>
+                <button class="botao__ordena quinta" value="quinta">Ordena</button>
             </li>
             <li class="main__dia">
                 <span class="main__dia__semana" id="sexta">Sexta-Feira</span>
                 <ul class="lista__dia lista__sexta"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="sexta" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena sexta" value="sexta" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="sexta">Adicionar evento</button>
+                <button class="botao__ordena sexta" value="sexta">Ordena</button>
             </li>
             <li class="main__dia">
                 <span class="main__dia__semana" id="sabado">Sábado</span>          
                 <ul class="lista__dia lista__sabado"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="sabado" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena sabado" value="sabado" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="sabado">Adicionar evento</button>
+                <button class="botao__ordena sabado" value="sabado">Ordena</button>
             </li>
             <li class="main__dia">
                 <span class="main__dia__semana" id="domingo">Domingo</span>               
                 <ul class="lista__dia lista__domingo"></ul>
                 <input type="hidden" id="diaselecionado" name="dia">
-                <button class="botao__addevento" value="domingo" onclick="criarEvento(event)">Adicionar evento</button>
-                <button class="botao__ordena domingo" value="domingo" onclick="ordenarEvento(event)">Ordena</button>
+                <button class="botao__addevento" value="domingo">Adicionar evento</button>
+                <button class="botao__ordena domingo" value="domingo">Ordena</button>
             </li>
         </ul>
     </main>
@@ -101,7 +104,7 @@
             <p>Desenvolvido por Miguel Salles</p>
         </div>
     </footer>
-    
-    <script src="script.js" defer></script>
+
+    <script src="script.js" type="module"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 }
 
 :root {
-    --cor-primaria: #BF9264;
+    --cor-primaria: #4a1c1c; 
     --cor-secundaria: #6F826A;
     --cor-terciaria: #F0F1C5;
     --cor-quarternaria: #BBD8A3;
@@ -33,6 +33,10 @@ header {
     justify-content: center;
 }
 
+.botoes__header {
+    flex: 2;
+}
+
 .botao__excluir {
     font-family: var(--cor-secundaria);
     background-color: red;
@@ -41,10 +45,24 @@ header {
     border: 0;
     color: var(--cor-terciaria);
     width: 8em;
-    margin: 0 2em;
+    margin: 0 1em;
 
     &:hover {
         background-color: #fc4848;
+    }
+}
+
+.botao__cor {
+    font-family: var(--cor-secundaria);
+    background-color: rgb(0, 0, 0);
+    border-radius: 1em;
+    padding: 0.5em;
+    border: 0;
+    color: var(--cor-terciaria);
+    width: 8em;
+
+    &:hover {
+        background-color: #4b4a4a;
     }
 }
 
@@ -148,7 +166,15 @@ main {
     background-color: #92ac8c;
 }
 
-.submit {
+.botao__submit {
+    font-family: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    border-radius: 1em;
+    padding: 0.5em;
+    border: 0;
+    color: var(--cor-terciaria);
+    width: 10em;
+    margin-top: 5%;
     margin-top: 0;
 }
 
@@ -331,7 +357,12 @@ input, textarea {
         font-size: 15px;
     }
 
+    .botoes__header {
+        padding: 0.5em 0;
+    }
+
     .botao__excluir {
+        padding: 0.5em;
         margin: 5px 5px;
         font-size: 1em;
     }
