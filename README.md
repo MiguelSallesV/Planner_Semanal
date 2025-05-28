@@ -17,11 +17,12 @@
     <li>Função para <strong>editar um evento.</strong></li>
     <li>Verificação de <strong>título igual e ordenação por hora.</strong></li>
     <li>Responsividade para <strong>todos os dispositivos.</strong></li>
-    <li>Mudança de tema <strong>com um botão</strong>(Default Theme, Purple Theme e Dark Theme)</li>
+    <li>Mudança de tema <strong>com um botão (Default Theme, Purple Theme e Dark Theme)</strong></li>
+    <li><strong>O tema continua mesmo atualizando a página</strong></li>
 </ul>
 
 ### 📺 Uma pequena demonstração do Projeto
-![Pequena Demonstração](./assets_ReadMe/pequena-demo.gif)
+![Pequena Demonstração](./assets_ReadMe/demo.gif)
 
 
 ### 💻 Tecnologias Utilizadas
