@@ -3,12 +3,43 @@
     padding: 0;
 }
 
-:root {
+body[data-theme='default-theme'] {
     --cor-primaria: #4a1c1c; 
     --cor-secundaria: #6F826A;
     --cor-terciaria: #F0F1C5;
     --cor-quarternaria: #BBD8A3;
-    --fonte-principal: "Cal Sans", sans-serif;    
+    --fonte-principal: "Cal Sans", sans-serif;
+    --btn-excluir: red;
+    --btn-excluir-hover: #fc4848;   
+    --btn-editar: black;
+    --btn-editar-hover: #4b4a4a;
+    --btn-addevento-hover:#92ac8c;
+}
+
+body[data-theme='purple-theme'] {
+    --cor-primaria: #7F55B1; 
+    --cor-secundaria: #9B7EBD;
+    --cor-terciaria: #FFE1E0;
+    --cor-quarternaria: #BBD8A3;
+    --fonte-principal: "Cal Sans", sans-serif;
+    --btn-excluir: #fc4848;
+    --btn-excluir-hover: #f38585;
+    --btn-editar: #4b4a4a;
+    --btn-editar-hover: #747474;
+    --btn-addevento-hover:#a895be;     
+}
+
+body[data-theme='dark-theme'] {
+    --cor-primaria: #222831; 
+    --cor-secundaria: #393E46;
+    --cor-terciaria: #DFD0B8;
+    --cor-quarternaria: #948979;
+    --fonte-principal: "Cal Sans", sans-serif;
+    --btn-excluir: #fc4848;
+    --btn-excluir-hover: #f38585;
+    --btn-editar: #4b4a4a;
+    --btn-editar-hover: #747474;
+    --btn-addevento-hover:#6a7280;     
 }
 
 body {
@@ -39,7 +70,7 @@ header {
 
 .botao__excluir {
     font-family: var(--cor-secundaria);
-    background-color: red;
+    background-color:var(--btn-excluir);
     border-radius: 1em;
     padding: 0.5em;
     border: 0;
@@ -48,13 +79,14 @@ header {
     margin: 0 1em;
 
     &:hover {
-        background-color: #fc4848;
+        background-color: var(--btn-excluir-hover);
+        transform: scale(1.05);
     }
 }
 
-.botao__cor {
+.botao__tema {
     font-family: var(--cor-secundaria);
-    background-color: rgb(0, 0, 0);
+    background-color: var(--btn-editar);
     border-radius: 1em;
     padding: 0.5em;
     border: 0;
@@ -62,7 +94,8 @@ header {
     width: 8em;
 
     &:hover {
-        background-color: #4b4a4a;
+        background-color: var(--btn-editar-hover);
+        transform: scale(1.05);
     }
 }
 
@@ -81,6 +114,7 @@ header {
     
     &:hover {
         background-color: #77b2d4;
+        transform: scale(1.05);
     }
 }
 
@@ -163,7 +197,8 @@ main {
 }
 
 .botao__addevento:hover {
-    background-color: #92ac8c;
+    background-color: var(--btn-addevento-hover);
+    transform: scale(1.05);
 }
 
 .botao__submit {

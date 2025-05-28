@@ -2,6 +2,7 @@ import adicionarEvento from "./scripts/adicionarEvento.js";
 import dataAtual from "./scripts/dataAtual.js";
 import editarEvento from "./scripts/editarEvento.js";
 import excluirEvento from "./scripts/excluirEvento.js";
+import mudarTema from "./scripts/mudarTema.js";
 
 //Pegando as datas atuais
 //import
@@ -75,7 +76,7 @@ function exibirEventos(dia) {
     let fragmento = document.createDocumentFragment();
     eventos.forEach((evento) => {
         var listaEventos = document.createElement('li');
-        listaEventos.style.borderTop = '5px #6F826A solid';
+        listaEventos.style.borderTop = '5px var(--cor-secundaria) solid';
         listaEventos.innerHTML = evento.descricao
         ? `<button class="botao__excluir excluir__dia">X</button> <button class="botao__editar">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> ${evento.descricao} <br> <span class="horario">${evento.horario}</span>`
         : `<button class="botao__excluir excluir__dia">X</button> <button class="botao__editar">&#x270F;&#xFE0F;</button> <div class="titulo"> ${evento.titulo}</div> <span class="horario">${evento.horario}</span>`;
@@ -124,3 +125,6 @@ botaoExcluirAllEvents.addEventListener('click', () => {
         location.reload()
     }
 })
+
+//Mudar Tema do Site
+mudarTema()
