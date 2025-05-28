@@ -17,6 +17,7 @@
     <li>Função para <strong>editar um evento.</strong></li>
     <li>Verificação de <strong>título igual e ordenação por hora.</strong></li>
     <li>Responsividade para <strong>todos os dispositivos.</strong></li>
+    <li>Mudança de tema <strong>com um botão</strong>(Default Theme, Purple Theme e Dark Theme)</li>
 </ul>
 
 ### 📺 Uma pequena demonstração do Projeto
