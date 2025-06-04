@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Semanal</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet"> 
+</head>
+<body data-theme="default-theme">
+    <header>
+        <div class="titulo__header">
+        <h1>Sua agenda semanal</h1>
+        </div>
+        <div class="botoes__header">
+        <button class="botao__excluir">Excluir Eventos</button>
+        <button class="botao__tema">Mudar tema</button>
+        <a href="../Timer/timer.html" class="link__temporizador">Temporizador</a>
+        </div>
+        <h2 class="diaatual__header">Bom dia! Hoje é 22/22/2222</h2>
+    </header>
+    <main>
+        <ul class="main__dias">
+            <li class="main__dia">
+                <span class="main__dia__semana" id="segunda">Segunda-Feira</span>
+                <ul class="lista__dia lista__segunda"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="segunda">Adicionar evento</button>
+                <button class="botao__ordena segunda" value="segunda">Ordena</button>
+                <div id="fundo">
+                    <div id="formulario" class="formulario">
+                        <div class="fomulario__conteudo">
+                            <button class="fechar">&times;</button>
+                            <form class="formulario__campos">
+                                <div>
+                                <label>Título: </label>
+                                <br>
+                                <input style="width: 20em;" type="text" name="titulo" id="titulo" required>
+                                </div>
+                                <div>
+                                <label>Descrição Opcional: </label>
+                                <br>
+                                <textarea row="6" style="width: 20em" id="descricao" name="descricao"></textarea>
+                                </div>
+                                <div>
+                                <label>Horário: </label>
+                                <br>
+                                <input type="time" name="horario" id="horario" required>
+                                </div>
+                                <button class="botao__submit" type="submit">Adicionar Evento</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="terca">Terça-Feira</span>
+                <ul class="lista__dia lista__terca"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="terca">Adicionar evento</button>
+                <button class="botao__ordena terca" value="terca">Ordena</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="quarta">Quarta-Feira</span>
+                <ul class="lista__dia lista__quarta"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="quarta">Adicionar evento</button>
+                <button class="botao__ordena quarta" value="quarta">Ordena</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="quinta">Quinta-Feira</span>
+                <ul class="lista__dia lista__quinta"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="quinta">Adicionar evento</button>
+                <button class="botao__ordena quinta" value="quinta">Ordena</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="sexta">Sexta-Feira</span>
+                <ul class="lista__dia lista__sexta"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="sexta">Adicionar evento</button>
+                <button class="botao__ordena sexta" value="sexta">Ordena</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="sabado">Sábado</span>          
+                <ul class="lista__dia lista__sabado"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="sabado">Adicionar evento</button>
+                <button class="botao__ordena sabado" value="sabado">Ordena</button>
+            </li>
+            <li class="main__dia">
+                <span class="main__dia__semana" id="domingo">Domingo</span>               
+                <ul class="lista__dia lista__domingo"></ul>
+                <input type="hidden" id="diaselecionado" name="dia">
+                <button class="botao__addevento" value="domingo">Adicionar evento</button>
+                <button class="botao__ordena domingo" value="domingo">Ordena</button>
+            </li>
+        </ul>
+    </main>
+    <footer class="rodape">
+        <div class="rodape__conteudo">
+            <p>Organize de maneira simples seus compromissos semanais!</p>
+            <p>Desenvolvido por Miguel Salles</p>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>

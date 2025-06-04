@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador</title>
+    <link rel="stylesheet" href="../Home/style.css">
+    <link rel="stylesheet" href="timer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet"> 
+</head>
+<body data-theme="default-theme">
+    <header>
+        <div class="titulo__header">
+        <h1>Foque e Relaxe</h1>
+        <img src="../assets/tempo.png" class="img__tempo">
+        </div>
+        <div class="botoes__header">
+        <button class="botao__excluir controle__musica">Parar Música</button>
+        <button class="botao__tema">Mudar tema</button>
+        <a href="../Home/index.html" class="link__temporizador home">Home</a>
+        </div>
+        <h2 class="diaatual__header">Bom dia! Hoje é 22/22/2222</h2>
+    </header>
+    
+    <main>
+        <div class="temporizador">
+            <div>
+                <p class="tempo__atual">05:00</p>
+            </div>
+            <div class="tempo__opcoes">
+                <button class="opcoes tempo__rapido">Rápido</button>
+                <button class="opcoes tempo__medio">Médio</button>
+                <button class="opcoes tempo__longo">Longo</button>
+            </div>
+                <button class="opcoes tempo__estado">Iniciar</button>
+        </div>
+    </main>
+    <script src="./timer.js" type="module"></script> 
+</body>
+
+</html>

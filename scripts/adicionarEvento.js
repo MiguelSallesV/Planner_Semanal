@@ -26,8 +26,11 @@ function adicionarEvento() {
      } else if (eventoExiste) {
          alert('Não podem ter dois títulos iguais');     
          return;
+     } else if (eventoLocal.titulo === '' || eventoLocal.horario === ''){
+         alert('Você deve digitar um título e selecionar um horário!');
+         return;
      } else {
-         evento.push(eventoLocal);
+        evento.push(eventoLocal)
      }
      
      //Salva os eventos atualizados no LocalStorage
