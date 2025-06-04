@@ -1,5 +1,5 @@
-import mudarTema from "../scripts/mudarTema.js";
-import dataAtual from "../scripts/dataAtual.js";
+import mudarTema from "./scripts/mudarTema.js";
+import dataAtual from "./scripts/dataAtual.js";
 
 mudarTema()
 dataAtual()
@@ -11,12 +11,13 @@ const btnLongo = document.querySelector('.tempo__longo');
 const btnIniciarPausarContinuar = document.querySelector('.tempo__estado');
 const btnControleMusica = document.querySelector('.controle__musica');
 
-const musicaTema = new Audio('../sons/luna-rise-part-one.mp3');
-const alarmeTempo = new Audio('../sons/beep.mp3');
-const playTempo = new Audio('../sons/play.wav');
-const pauseTempo = new Audio('../sons/pause.mp3');
+const musicaTema = new Audio('./sons/luna-rise-part-one.mp3');
+const alarmeTempo = new Audio('./sons/beep.mp3');
+const playTempo = new Audio('./sons/play.wav');
+const pauseTempo = new Audio('./sons/pause.mp3');
 
 let intervaloID = null;
+//tempo padrão
 let tempoEmSegundos = 5 * 60;
 let musicaTocando = true;
 musicaTema.play();

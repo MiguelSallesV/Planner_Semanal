@@ -1,8 +1,8 @@
-import adicionarEvento from "../scripts/adicionarEvento.js";
-import dataAtual from "../scripts/dataAtual.js";
-import editarEvento from "../scripts/editarEvento.js";
-import excluirEvento from "../scripts/excluirEvento.js";
-import mudarTema from "../scripts/mudarTema.js";
+import adicionarEvento from "./scripts/adicionarEvento.js";
+import dataAtual from "./scripts/dataAtual.js";
+import editarEvento from "./scripts/editarEvento.js";
+import excluirEvento from "./scripts/excluirEvento.js";
+import mudarTema from "./scripts/mudarTema.js";
 
 //Pegando as datas atuais
 //import
@@ -102,13 +102,23 @@ function exibirEventos(dia) {
     listaDia.appendChild(fragmento) //Adiciona tudo de uma vez no DOM  
 }
 
-//Carregar eventos automaticamente quando atualizar a página
-    document.addEventListener('DOMContentLoaded', () => {
+//Função feita para quando precisarmos pegar todos os dias.
+function pegarTodasOsDias(funcao) {
         const diasDaSemana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo'];
 
         diasDaSemana.forEach(dia => {
-            exibirEventos(dia);
+            funcao(dia);
         });
+}
+
+//Função pensada para excluir somente os dias e manter o tema do site (com localStorage.clear() - tema do site sairia)
+function excluirTodosOsDias(dia) {
+    localStorage.removeItem(dia)
+}
+
+//Carregar eventos automaticamente quando atualizar a página
+    document.addEventListener('DOMContentLoaded', () => {
+        pegarTodasOsDias(exibirEventos);
     });
 
 //Exclui todos os eventos
@@ -121,7 +131,7 @@ botaoExcluirAllEvents.addEventListener('click', () => {
     }
     const resposta = confirm('Deseja mesmo excluir todos os eventos?')
     if(resposta) {
-        localStorage.clear()
+        pegarTodasOsDias(excluirTodosOsDias)
         location.reload()
     }
 })
