@@ -202,6 +202,7 @@ main {
 }
 
 .botao__addevento {
+    cursor: pointer;
     font-family: var(--cor-secundaria);
     background-color: var(--cor-secundaria);
     border-radius: 1em;
@@ -230,6 +231,7 @@ main {
 }
 
 .botao__submit {
+    cursor: pointer;
     font-family: var(--cor-secundaria);
     background-color: var(--cor-secundaria);
     border-radius: 1em;
