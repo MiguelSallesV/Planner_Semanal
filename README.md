@@ -24,6 +24,15 @@
 ### 📺 Uma pequena demonstração do Projeto
 ![Pequena Demonstração](./assets_ReadMe/demo.gif)
 
+### ⚙ Nova atualização (Janela de temporizador)
+![Demonstração Temporizador](./assets_ReadMe/demoTemp.gif)
+
+<ul>
+    <li>Temporizador com tempos - <strong>Rápido(5min), Médio(15min), Longo(30min).</strong></li>
+    <li>Quando você muda o tema na página principal <strong>ele também muda na página do timer.</strong></li>
+    <li>Música tema no site e <strong>botão com funcionalidade de pausar e despausar a música.</strong></li>
+    <li>Botão com <strong>função de Pausar e Continuar tempo.</strong></li>
+</ul>
 
 ### 💻 Tecnologias Utilizadas
 
