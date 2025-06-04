@@ -1,8 +1,5 @@
 
 .titulo__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 0.5em;
 }
 
@@ -41,10 +38,18 @@ main {
 }
 
 .tempo__opcoes {
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5em;
+}
+
+.tempo__btn-estado {
+    width: 100%;
+}
+
+.tempo__medio {
+    margin: 0 1em;
 }
 
 .opcoes {
@@ -73,8 +78,22 @@ main {
     }
 }
 
+@media (max-width:725px) {
+    .tempo__opcoes {
+        width: 55%;
+    }  
+}
+
 @media (max-width: 425px) {
     .tempo__atual {
         font-size: 7.5em;
+    }
+
+    .tempo__opcoes {
+        width: 62%;
+    }
+
+    .opcoes {
+        width: 35%;
     }
 }

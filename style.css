@@ -407,7 +407,7 @@ input, textarea {
 @media (max-width: 990px) {
 
     .botao__excluir, .botao__tema, .link__temporizador {
-        font-size: 9px;
+        font-size: 11px;
     }
 
     .titulo__header {
