@@ -300,6 +300,8 @@ input, textarea {
 
 .rodape {
     display: flex;
+    text-align: center;
+    align-items: center;
     justify-content: center;
     position: relative;
     background-color: var(--cor-secundaria);
@@ -309,7 +311,9 @@ input, textarea {
 .rodape__conteudo {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 0.4em;
 }
 
 /* Pequenos ajustes */
