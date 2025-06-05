@@ -78,53 +78,52 @@ header {
     margin-left: 1em;
 }
 
-.botao__excluir {
-    cursor: pointer;
-    font-family: var(--cor-secundaria);
-    background-color:var(--btn-excluir);
-    border-radius: 1em;
-    padding: 0.5em;
-    border: 0;
-    color: var(--cor-terciaria);
-    width: 8em;
-    font-size: 14px;
-
-    &:hover {
-        background-color: var(--btn-excluir-hover);
-        transform: scale(1.05);
-    }
-}
-
-.botao__tema {
-    cursor: pointer;
-    font-family: var(--cor-secundaria);
-    background-color: var(--btn-editar);
-    border-radius: 1em;
-    padding: 0.5em;
-    border: 0;
-    margin: 0 1em;
-    color: var(--cor-terciaria);
-    width: 8em;
-    font-size: 14px;
-
-    &:hover {
-        background-color: var(--btn-editar-hover);
-        transform: scale(1.05);
-    }
-}
-
-.link__temporizador {
+.botao__excluir,
+.botao__tema,
+.link__temporizador { 
+    cursor: pointer; 
+    font-family: var(--fonte-principal);
+    border-radius: 1em; 
+    padding: 0.5em; 
+    border: 0; 
+    color: var(--cor-terciaria); 
+    width: 8em; 
+    font-size: 14px; 
     text-decoration: none;
-    color: var(--cor-terciaria);
-    background-color: var(--link-temporizador);
-    padding: 0.5em;
-    border-radius: 1em;
-    font-size: 14px;
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box; 
+}
 
-    &:hover {
-        background-color: var(--link-temporizador-hover);
-        transform: scale(1.05);
-    }
+
+.botao__excluir { 
+    background-color: var(--btn-excluir); 
+} 
+
+.botao__tema { 
+    background-color: var(--btn-editar); 
+    margin: 0 1em; 
+} 
+
+.link__temporizador { 
+    background-color: var(--link-temporizador); 
+} 
+
+/* Efeitos de hover */
+.botao__excluir:hover { 
+    background-color: var(--btn-excluir-hover); 
+    transform: scale(1.05); 
+}
+
+.botao__tema:hover { 
+    background-color: var(--btn-editar-hover); 
+    transform: scale(1.05); 
+}
+
+.link__temporizador:hover { 
+    background-color: var(--link-temporizador-hover); 
+    transform: scale(1.05); 
 }
 
 .excluir__dia {
@@ -424,6 +423,7 @@ input, textarea {
     header {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
     }
 
@@ -436,12 +436,22 @@ input, textarea {
     }
 
     .botoes__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 0.5em 0;
+        flex-direction: row;
+        margin-left: 0;
+        width: 100%;
     }
 
-    .botao__excluir {
-        padding: 0.5em;
+    .botao__excluir,
+    .botao__tema,
+    .link__temporizador {
+        padding: 0.5em; 
         font-size: 9px;
+        width: auto; 
+        min-width: 8em; 
     }
 
     .excluir__dia {

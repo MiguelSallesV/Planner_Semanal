@@ -79,6 +79,11 @@ main {
 }
 
 @media (max-width:725px) {
+    .img__tempo {
+        width: 25px;
+        height: 25px;
+    }
+
     .tempo__opcoes {
         width: 55%;
     }  
